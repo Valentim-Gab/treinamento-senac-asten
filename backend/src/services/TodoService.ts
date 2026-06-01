@@ -39,7 +39,7 @@ export const findById = async (
   id: number,
 ): Promise<Todo | null> => {
   const [rows] = await db.query(
-    'SELECT id, user_id, title, completed FROM todos WHERE id = ? AND user_id = ? AND LIMIT 1',
+    'SELECT id, user_id, title, completed FROM todos WHERE id = ? AND user_id = ? LIMIT 1',
     [id, userId],
   )
 
