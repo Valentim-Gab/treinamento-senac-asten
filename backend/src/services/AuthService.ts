@@ -2,6 +2,7 @@ import jwt, { type SignOptions } from 'jsonwebtoken'
 import { db } from '../database.js'
 import { authConfig } from '../config/AuthConfig.js'
 import bcrypt from 'bcrypt'
+import { HttpError } from '../errors/HttpError.js'
 
 type User = {
   id: number
@@ -19,12 +20,12 @@ export const login = async (email: string, password: string) => {
 
   const user = (rows as User[])[0]
   if (!user) {
-    throw new Error('Email ou senha incorretos')
+    throw new HttpError(401, 'Email ou senha incorretos')
   }
 
   const valid = await bcrypt.compare(password, user.password)
   if (!valid) {
-    throw new Error('Email ou senha incorretos')
+    throw new HttpError(401, 'Email ou senha incorretos')
   }
 
   const options: SignOptions = {
@@ -49,13 +50,13 @@ export const login = async (email: string, password: string) => {
 export const register = async (data: {
   name: string
   email: string
-  password: string  
+  password: string
 }) => {
   const hash = await bcrypt.hash(data.password, authConfig.saltsRounds)
 
   const [result] = await db.query(
     'INSERT INTO users (name, email, password) VALUES (?, ?, ?)',
-    [data.name, data.email, hash]
+    [data.name, data.email, hash],
   )
 
   const insertId = (result as any).insertId
