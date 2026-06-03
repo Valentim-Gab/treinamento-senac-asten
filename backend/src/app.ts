@@ -7,8 +7,16 @@ import userRoutes from './routes/UserRoutes.js'
 import authRoutes from './routes/AuthRoutes.js'
 import todoRoutes from './routes/TodoRoutes.js'
 import { HttpError } from './errors/HttpError.js'
+import cors from 'cors'
 
 const app = express()
+
+app.use(
+  cors({
+    origin: 'http://localhost:5173',
+    credentials: true,
+  })
+)
 
 app.use(express.json())
 app.use('/users', userRoutes)
