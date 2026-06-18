@@ -1,0 +1,138 @@
+.todo-container {
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.todo-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.todo-input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-input {
+  flex: 1;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.todo-button-add {
+  padding: 8px 12px;
+  background: #2ecc71;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 500px;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.4s;
+}
+
+.todo-button-add:hover {
+  background-color: #27ae60;
+}
+
+.todo-button-add:active {
+  transform: scale(0.95);
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #333;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  background: #fafafa;
+}
+
+.todo-text {
+  font-size: 14px;
+  width: 100%;
+}
+
+.todo-button-delete {
+  padding: 6px 10px;
+  background: #e74c3c;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.4s;
+}
+
+.todo-button-delete:hover {
+  background: #c0392b;
+}
+
+.todo-button-delete:active {
+  transform: scale(0.95);
+}
+
+.todo-button-edit {
+  padding: 6px 10px;
+  background: #3498db;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.4s;
+}
+
+.todo-button-edit:hover {
+  background: #2980b9;
+}
+
+.todo-button-edit:active {
+  transform: scale(0.95);
+}
+
+.todo-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.todo-form-input {
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.todo-form-input:focus {
+  border-color: #007bff
+}
+
+.todo-form-button {
+  padding: 8px 14px;
+  background: #3498db;
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.todo-form-button:hover {
+  background: #2980b9;
+}
+
+.todo-form-button:active {
+  transform: scale(0.97);
+}
