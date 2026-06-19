@@ -1,0 +1,28 @@
+meta {
+  name: create user
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:3000/users
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsIm5hbWUiOiJFbnJpcXVlIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzc4MjQ0OTA5LCJleHAiOjE3NzgyNDQ5Njl9.yDK9ReOeNCFCGTjJEBJG_4NetXnRYQLvycS_eMqPKGk
+}
+
+body:json {
+  {
+    "name": "Teste",
+    "email": "test@avmb",
+    "password": "Test123"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

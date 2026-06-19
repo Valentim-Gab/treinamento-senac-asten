@@ -1,0 +1,29 @@
+npm i react-router
+
+
+tsconfig.json e app
+
+"compilerOptions": {
+  "ignoreDeprecations": "6.0",
+  "baseUrl": ".",
+  "paths": {
+    "@/*": ["src/*"]
+  }
+},
+
+
+vite.config.ts
+
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
+})

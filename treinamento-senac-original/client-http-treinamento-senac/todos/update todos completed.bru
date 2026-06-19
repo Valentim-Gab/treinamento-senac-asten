@@ -1,0 +1,26 @@
+meta {
+  name: update todos completed
+  type: http
+  seq: 4
+}
+
+patch {
+  url: http://localhost:3000/todos/1/completed
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsIm5hbWUiOiJWYWxlbnRpbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzc4MjY2NjY5LCJleHAiOjE3NzgyNjY5Njl9.GdjfAvVrH2Z4ZP7uBjcwCon54PIT2XILSIKHfFTLqHs
+}
+
+body:json {
+  {
+    "completed": true
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,20 @@
+meta {
+  name: find todos
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:3000/todos
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsIm5hbWUiOiJWYWxlbnRpbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzc4MjY2NjY5LCJleHAiOjE3NzgyNjY5Njl9.GdjfAvVrH2Z4ZP7uBjcwCon54PIT2XILSIKHfFTLqHs
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

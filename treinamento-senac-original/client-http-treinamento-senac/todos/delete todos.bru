@@ -1,0 +1,26 @@
+meta {
+  name: delete todos
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:3000/todos/4
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsIm5hbWUiOiJWYWxlbnRpbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzc4MjY2NjY5LCJleHAiOjE3NzgyNjY5Njl9.GdjfAvVrH2Z4ZP7uBjcwCon54PIT2XILSIKHfFTLqHs
+}
+
+body:json {
+  {
+    "title": "Arrumar o deploy edt"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
