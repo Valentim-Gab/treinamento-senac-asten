@@ -1,6 +1,11 @@
 import type { Request, Response } from 'express'
 import * as authService from '../services/AuthService.js'
 
+export const getMe = async (req: Request, res: Response) => {
+  const data = await authService.getMe(req.userId!)
+  res.json(data)
+}
+
 export const login = async (req: Request, res: Response) => {
   const { email, password } = req.body
   const data = await authService.login(email, password)

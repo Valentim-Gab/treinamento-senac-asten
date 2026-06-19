@@ -12,6 +12,26 @@ type User = {
   role: string
 }
 
+export const getMe = async (userId: number) => {
+  const [rows] = await db.query(
+    'SELECT id, name, email, role FROM users WHERE id = ?',
+    [userId],
+  )
+
+  const user = (rows as User[])[0]
+
+  if (!user) {
+    throw new HttpError(401, 'Usuário não autorizado')
+  }
+
+  return {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    role: user.role,
+  }
+}
+
 export const login = async (email: string, password: string) => {
   const [rows] = await db.query(
     'SELECT id, name, email, password, role FROM users WHERE email = ?',

@@ -2,6 +2,7 @@ import { signUp } from '@/services/AuthService'
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
 import './login.css'
+import OnlyGuest from '@/guards/OnlyGuest'
 
 export default function RegisterPage() {
   const [name, setName] = useState<string>('')
@@ -28,43 +29,45 @@ export default function RegisterPage() {
   }
 
   return (
-    <main className="main-container">
-      <form className="card" onSubmit={handleSubmit}>
-        <h1>Criar conta</h1>
-        <input
-          type="text"
-          placeholder="Nome"
-          required
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Senha"
-          autoComplete="new-password"
-          required
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Confirmar senha"
-          autoComplete="new-password"
-          required
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
-        <button type="submit" className="btn">
-          Criar
-        </button>
-      </form>
-    </main>
+    <OnlyGuest>
+      <main className="main-container">
+        <form className="card" onSubmit={handleSubmit}>
+          <h1>Criar conta</h1>
+          <input
+            type="text"
+            placeholder="Nome"
+            required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Senha"
+            autoComplete="new-password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Confirmar senha"
+            autoComplete="new-password"
+            required
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          <button type="submit" className="btn">
+            Criar
+          </button>
+        </form>
+      </main>
+    </OnlyGuest>
   )
 }
